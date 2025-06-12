@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TikTok Downloader X Ahmad Mods</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%;font-family:'Segoe UI',sans-serif;background:black;color:white;overflow:hidden}
+    canvas{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0}
+    .container{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      z-index:2;
+      background:rgba(0,0,0,.6);
+      border-radius:20px;
+      padding:25px;
+      width:90%;
+      max-width:400px;
+      box-shadow:0 0 30px #ff3c3c;
+      text-align:center
+    }
+    h1{margin-bottom:20px;color:#ff3c3c}
+    input{
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      border-radius:10px;
+      border:none;
+      font-size:16px;
+      background:#111;
+      color:white
+    }
+    button{
+      background:#ff3c3c;
+      color:black;
+      font-weight:bold;
+      padding:12px;
+      width:100%;
+      border-radius:10px;
+      border:none;
+      cursor:pointer;
+      font-size:16px;
+      transition:.3s
+    }
+    button:hover{background:#cc2f2f}
+    #result{margin-top:20px;color:white;font-size:15px}
+    .whatsapp-link{
+      display:inline-block;
+      margin-top:20px;
+      background:#25d366;
+      color:black;
+      padding:10px 20px;
+      border-radius:25px;
+      text-decoration:none;
+      font-weight:bold;
+      box-shadow:0 0 15px rgba(37,211,102,.7);
+      transition:.3s
+    }
+    .whatsapp-link:hover{background:#1ebe5d}
+    .download-btn{
+      background:#ff3c3c;
+      color:black;
+      padding:12px 30px;
+      border-radius:10px;
+      text-decoration:none;
+      display:inline-block;
+      margin-top:15px;
+      font-size:16px;
+      font-weight:bold;
+      transition:.3s
+    }
+    .download-btn:hover{background:#cc2f2f}
+  </style>
+</head>
+<body>
+
+<canvas id="matrixCanvas"></canvas>
+
+<div class="container">
+  <h1>&#127916; TikTok Downloader</h1>
+  <form method="POST">
+    <input type="url" name="videoUrl" placeholder="Paste TikTok video URL" required />
+    <button type="submit">Download Video</button>
+  </form>
+  <div id="result">
+      </div>
+  <a class="whatsapp-link" id="HackerNet" href="https://whatsapp.com/channel/0029VajXwL6AYlUQ0YPBzA2U">Join Channel</a>
+</div>
+
+<script>
+  const canvas = document.getElementById("matrixCanvas");
+  const ctx = canvas.getContext("2d");
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  const chars = "01";
+  const fontSize = 16;
+  const columns = canvas.width / fontSize;
+  const drops = Array(Math.floor(columns)).fill(1);
+
+  function drawMatrix() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#ff3c3c";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  setInterval(drawMatrix, 33);
+</script>
+
+</body>
+</html>
